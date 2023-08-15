@@ -1,0 +1,7 @@
+// 獨立產生的文件 不直接在全預設訂。
+.btn-cus-hex {
+    @include button-variant(#6E9887, #6E9887);
+}
+.btn-outline-hex {
+    @include button-outline-variant(#F283B6);
+}

@@ -1,0 +1,79 @@
+
+$sidebar-width: 280px;
+
+// 行動版（預設）
+.sidebar{
+    width: $sidebar-width;
+    margin-left: -$sidebar-width;
+    transition: margin-left .25s;
+    position: fixed;
+    top: 0;
+
+    // 登出按鈕 active樣式
+    .sidebar-link{
+        color: $dark;
+        display: block;
+        text-decoration: none;
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+        &:hover{
+            background-color: rgba($primary, 0.16);
+        }
+    }
+    .sidebar-link.active{
+        position: relative;
+        color: $primary !important;
+        background-color: rgba($primary, 0.16);
+        // active時顯示線斷
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 2px;
+            height: 100%;
+            width: 3px;
+            background: $primary;
+        }
+    }
+}
+.main{
+    width: 100%;
+}
+
+// 展開 sidebar 使用
+.sidebar-toggled{
+    .sidebar{
+        margin-left: 0;
+    }
+    .main{
+        margin-left: $sidebar-width; // 因為 position-fixed 的關係 需要將被遮住的內容補回
+    }
+}
+
+
+
+
+// 桌面版（up）
+// 可以在 bs5 排版的斷點找到 最小寬度 裡面是怎麼設定的。
+@include media-breakpoint-up(lg) {
+    .sidebar{
+        margin-left: 0;
+        width: $sidebar-width;
+    }
+    .main{
+        width: calc(100vw - $sidebar-width);
+        margin-left: $sidebar-width; // 因為 position-fixed 的關係 需要將被遮住的內容補回
+        transition: margin-left .25s;
+    }
+
+    // 展開 sidebar 使用
+    .sidebar-toggled{
+        .sidebar{
+            margin-left: -$sidebar-width;
+        }
+        .main{
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+}

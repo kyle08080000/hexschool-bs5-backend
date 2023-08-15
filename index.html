@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁-後台管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="sass/all.css">
+</head>
+<body class="vsc-initialized">
+    <div class="d-flex">
+        <aside class="sidebar vh-100 border-end pt-3 d-flex bg-white flex-column">
+            <!-- 1. 後臺名稱 -->
+            <div class="px-4 mb-3">
+                <strong>六角西餐廳</strong>
+                －後台管理
+            </div>
+            <!-- 2. 選單 -->
+            <div class="overflow-auto">
+                <div>
+                    <a href="index.html" class="sidebar-link active">
+                        <div class="px-4">
+                            首頁
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <a href="#menu-order" class="sidebar-link" data-bs-toggle="collapse">
+                        <div class="d-flex justify-content-between px-4">
+                            <p class="mb-0">
+                                訂單管理
+                            </p>
+                            <i class="bi bi-caret-down"></i>
+                        </div>
+                    </a>
+                    <div class="collapse" id="menu-order">
+                        <a href="orders.html" class="sidebar-link">
+                            <div class="ps-5">
+                                訂單列表
+                            </div>
+                        </a>
+                        <a href="order.html" class="sidebar-link">
+                            <div class="ps-5">
+                                單一訂單細節
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 3. 登出按鈕 -->
+            <a href="#" class="mt-auto sidebar-link">
+                <div class="px-4">
+                    登出<i class="bi bi-box-arrow-left ms-2"></i>
+                </div>
+            </a>
+        </aside>
+        <main class="main">
+            <div class="bg-white w-100 border-bottom sticky-top">
+                <a href="#" class="d-inline-block py-3 px-4 border-end" id="toggle-btn">
+                    <i class="bi bi-arrows-angle-expand"></i>
+                </a>
+            </div>
+
+            <div class="p-4">
+                <!-- 主要內容 -->
+                <div class="row g-4 row-cols-lg-3 mb-4">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-end">
+                                <h2 class="display-6 text-nowrap">在線人數</h2>
+                                <p class="display-4 mb-0">
+                                    3,123
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-end">
+                                <h2 class="display-6 text-nowrap">訂單人數</h2>
+                                <p class="display-4 mb-0 text-nowrap">
+                                    1,092
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-body text-end">
+                                <h2 class="display-6">營業額</h2>
+                                <p class="mb-0 text-success">
+                                    <spen class="fs-3">NT$</spen><span class="display-4">204,432</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- canvas 圖表 -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <canvas id="pie-chart" class="img-fluid"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <canvas id="bar-chart" class="img-fluid"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-transparent">
+                        <div class="input-group">
+                            <spen class="input-group-text border-0 bg-transparent pe-0">
+                                <i class="bi bi-search"></i>
+                            </spen>
+                            <input type="search" class="form-control border-0 shadow-none">
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="bg-light text-nowrap">
+                                    <tr class="align-middle">
+                                        <th scope="col" class="py-3 ps-4">訂單編號</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">用戶姓名</th>
+                                        <th scope="col">購買品項</th>
+                                        <th scope="col">付款狀態</th>
+                                        <th scope="col" class="text-center">購買金額</th>
+                                        <th scope="col" class="pe-4 text-center">編輯</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-nowrap">
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="align-middle">
+                                            <td scope="row" class="ps-4">TX123456789</td>
+                                            <td scope="row">ab1234@email.com</td>
+                                            <td scope="row">卡小伯</td>
+                                            <td scope="row">大麥克全家餐</td>
+                                            <td scope="row"><div class="text-muted">尚未付款</div></td>
+                                            <td scope="row" class="text-center">1280</td>
+                                            <td scope="row" class="text-end pe-4">
+                                                <a href="#" class="btn btn-sm btn-outline-dark me-2">編輯<i class="bi bi-pen"></i></a>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent py-2">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-end mb-0 ">
+                                <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+    <!-- js canvas 圖表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    (() => {
+    const chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(201, 203, 207)'
+    };
+    var randomScalingFactor = function () {
+        return Math.round(Math.random() * 2000000);
+    };
+
+    const pieCtx = document.getElementById('pie-chart').getContext('2d');
+    const barCtx = document.getElementById('bar-chart').getContext('2d');
+
+    const config = {
+        type: 'pie',
+        data: {
+        datasets: [{
+            data: [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            ],
+            backgroundColor: [
+            chartColors.red,
+            chartColors.orange,
+            chartColors.yellow,
+            chartColors.green,
+            chartColors.blue,
+            ],
+            label: 'Dataset 1'
+        }],
+        labels: [
+            '大麥克全餐',
+            '肥宅快樂水',
+            '太爽啦義大利麵',
+            '薯條加大吃不完',
+            '兒童餐椅不給坐',
+        ]
+        },
+        options: {
+        responsive: true
+        }
+    };
+    const barConfig = {
+        type: 'bar',
+        data: {
+        datasets: [{
+            data: [
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            ],
+            backgroundColor: [
+            chartColors.red,
+            chartColors.orange,
+            chartColors.yellow,
+            chartColors.green,
+            chartColors.blue,
+            chartColors.purple,
+            ],
+            label: 'Dataset 1'
+        }],
+        labels: [
+            '一月',
+            '二月',
+            '三月',
+            '四月',
+            '五月',
+            '六月',
+        ]
+        },
+        options: {
+        responsive: true
+        }
+    };
+    const pieChart = new Chart(pieCtx, config);
+    const barChart = new Chart(barCtx, barConfig);
+    })();
+    </script>
+
+        </main>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="./javascripts/all.js"></script>
+</body>
+</html>

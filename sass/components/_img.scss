@@ -1,0 +1,20 @@
+// 輪播圖 圖片區塊
+.carousel-inner .carousel-item {
+    height: 400px;
+    background-size: cover;
+    background-position: center; // 圖片周圍可能會被切除
+}
+@media (max-width: 820px){
+    .carousel-inner .carousel-item {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@media (max-width: 767px){
+    .carousel-inner .carousel-item {
+        height: 170px;
+        background-size: cover;
+        background-position: center;
+    }
+}
