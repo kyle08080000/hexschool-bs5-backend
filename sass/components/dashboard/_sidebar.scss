@@ -56,6 +56,10 @@ $sidebar-width: 280px;
 }
 .main-btn{
     margin-left: $sidebar-width - 65px;
+    transition: margin-left .25s;
+}
+.sidebar-btn{
+    transition: margin-left .25s;
 }
 
 

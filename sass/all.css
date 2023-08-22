@@ -14515,6 +14515,11 @@ textarea.form-control-lg {
 
 .main-btn {
   margin-left: 215px;
+  transition: margin-left 0.25s;
+}
+
+.sidebar-btn {
+  transition: margin-left 0.25s;
 }
 
 @media (min-width: 992px) {
