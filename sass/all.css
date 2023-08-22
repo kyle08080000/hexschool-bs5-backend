@@ -14471,6 +14471,7 @@ textarea.form-control-lg {
   transition: margin-left 0.25s;
   position: fixed;
   top: 0;
+  z-index: 2;
 }
 .sidebar .sidebar-link {
   color: #212529;
@@ -14505,7 +14506,15 @@ textarea.form-control-lg {
   margin-left: 0;
 }
 .sidebar-toggled .main {
-  margin-left: 280px;
+  margin-left: 0;
+}
+
+.body-overflow {
+  overflow-y: hidden;
+}
+
+.main-btn {
+  margin-left: 215px;
 }
 
 @media (min-width: 992px) {
@@ -14523,6 +14532,9 @@ textarea.form-control-lg {
   }
   .sidebar-toggled .main {
     width: 100%;
+    margin-left: 0;
+  }
+  .main-btn {
     margin-left: 0;
   }
 }/*# sourceMappingURL=all.css.map */

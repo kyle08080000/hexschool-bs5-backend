@@ -8,6 +8,7 @@ $sidebar-width: 280px;
     transition: margin-left .25s;
     position: fixed;
     top: 0;
+    z-index: 2;
 
     // 登出按鈕 active樣式
     .sidebar-link{
@@ -46,11 +47,16 @@ $sidebar-width: 280px;
         margin-left: 0;
     }
     .main{
-        margin-left: $sidebar-width; // 因為 position-fixed 的關係 需要將被遮住的內容補回
+        margin-left: 0; // 因為 position-fixed 的關係 需要將被遮住的內容補回
     }
 }
 
-
+.body-overflow{
+    overflow-y: hidden;
+}
+.main-btn{
+    margin-left: $sidebar-width - 65px;
+}
 
 
 // 桌面版（up）
@@ -75,5 +81,9 @@ $sidebar-width: 280px;
             width: 100%;
             margin-left: 0;
         }
+    }
+
+    .main-btn{
+        margin-left: 0;
     }
 }
