@@ -14471,7 +14471,7 @@ textarea.form-control-lg {
   transition: margin-left 0.25s;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
 }
 .sidebar .sidebar-link {
   color: #212529;
@@ -14520,6 +14520,10 @@ textarea.form-control-lg {
 
 .sidebar-btn {
   transition: margin-left 0.25s;
+}
+
+h1, .h1 {
+  z-index: 3;
 }
 
 @media (min-width: 992px) {
